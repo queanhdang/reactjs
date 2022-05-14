@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
+
 TodoFeatures.propTypes = {};
 
 function TodoFeatures(props) {
@@ -43,6 +45,16 @@ function TodoFeatures(props) {
     setFilterStatus("completed");
   };
 
+  const saveTodo = (todo) => {
+    const newTodoList = [...todoList];
+    const newTodo = {
+      id: Math.floor(Math.random() * 1000),
+      ...todo
+    }
+    newTodoList.push(newTodo);
+    setTodoList(newTodoList);
+  }
+
   const renderTodoList = todoList.filter(todo => filterStatus === 'all' || filterStatus === todo.status);
 
   return (
@@ -54,6 +66,7 @@ function TodoFeatures(props) {
         <button onClick={handleShowNewClick}> Show New Todo</button>
         <button onClick={handleShowCompletedClick}> Show Completed Todo</button>
       </div>
+      <TodoForm onTodoSubmit={saveTodo}/>
     </div>
   );
 }
