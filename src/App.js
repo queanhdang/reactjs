@@ -1,15 +1,17 @@
+import { useState } from 'react';
 import './App.css';
-import TodoFeatures  from './features/Todo';
-import AlbumFeature from './features/Album';
-import ColorFeature from './features/Color';
-import PostFeatures from './features/Post';
+import Hero from './components/Hero';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <>
-      <TodoFeatures />
-      <PostFeatures />
-    </>
+    <div className="app">
+      <h1>React Hooks - Clock</h1>
+      <p>{count}</p>
+      <button onClick={() => { setCount(count+1)}}>Increase</button>
+      <Hero name="Easy Frontend" />
+    </div>
   );
 }
 

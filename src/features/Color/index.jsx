@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ColorList from './Components/ColorList';
+import MagicBox from './Components/MagicBox';
 
 ColorFeature.propTypes = {
     
@@ -19,7 +20,7 @@ function ColorFeature(props) {
     ]
     return (
         <div>
-            <ColorList colorList={colorList} />
+            <MagicBox />
         </div>
     );
 }
